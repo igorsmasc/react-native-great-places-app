@@ -11,21 +11,28 @@ import Colors from '../constants/Colors';
 const Stack = createStackNavigator();
 
 const defaultStackNavOptions = {
-    headerStyle: {
-      backgroundColor: Platform.OS === 'android' ? Colors.primary : '',
-    },
-    headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primary,
-  };
+  headerStyle: {
+    backgroundColor: Platform.OS === 'android' ? Colors.primary : '',
+  },
+  headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primary,
+};
 
 const PlacesNavigator = () => {
-    return (
-      <Stack.Navigator screenOptions={defaultStackNavOptions} initialRouteName="list">
-        <Stack.Screen name="list" component={PlaceListScreen} />
-        <Stack.Screen name="detail" component={PlaceDetailScreen} />
-        <Stack.Screen title="Add Place" name="newPlace" component={NewPlaceScreen} />
-        <Stack.Screen name="map" component={MapScreen} />
+  return (
+    <Stack.Navigator
+      screenOptions={defaultStackNavOptions}
+      initialRouteName="list"
+    >
+      <Stack.Screen name="list" component={PlaceListScreen} />
+      <Stack.Screen name="detail" component={PlaceDetailScreen} />
+      <Stack.Screen
+        name="newPlace"
+        title="Add Place"
+        component={NewPlaceScreen}
+      />
+      <Stack.Screen name="map" component={MapScreen} />
     </Stack.Navigator>
-    )
-}
+  );
+};
 
 export default PlacesNavigator;
