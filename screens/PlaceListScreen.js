@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Platform, FlatList } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/HeaderButton';
 import { useSelector } from 'react-redux';
-import PlaceItem from './PlaceItem';
+import PlaceItem from '../components/PlaceItem';
 
 const PlaceListScreen = ({ navigation }) => {
   const places = useSelector((state) => state.places.places);
