@@ -1,12 +1,19 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, Platform, FlatList } from 'react-native';
+import { StyleSheet, Platform, FlatList } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { useSelector, useDispatch } from 'react-redux';
+
 import HeaderButton from '../components/HeaderButton';
-import { useSelector } from 'react-redux';
 import PlaceItem from '../components/PlaceItem';
+import * as placesActions from '../store/actions/places';
 
 const PlaceListScreen = ({ navigation }) => {
   const places = useSelector((state) => state.places.places);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(placesActions.loadPlaces());
+  }, [dispatch]);
 
   useEffect(() => {
     navigation.setOptions({
@@ -30,7 +37,7 @@ const PlaceListScreen = ({ navigation }) => {
       data={places}
       renderItem={({ item }) => (
         <PlaceItem
-          image={null}
+          image={item.imageUri}
           title={item.title}
           address={null}
           onSelect={() => {
