@@ -12,18 +12,19 @@ import { useDispatch } from 'react-redux';
 import Colors from '../constants/Colors';
 import * as placesAction from '../store/actions/places';
 
-const NewPlaceScreen = () => {
+const NewPlaceScreen = ({ navigation }) => {
   const [title, setTitle] = useState();
 
   const dispatch = useDispatch();
 
   const titleChangeHandler = (text) => {
     //add validation here
-    setTitle(Text);
+    setTitle(text);
   };
 
   const savePlaceHandler = () => {
     dispatch(placesAction.addPlace(title));
+    navigation.navigate('list');
   };
 
   return (
