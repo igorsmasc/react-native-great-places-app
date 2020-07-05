@@ -27,7 +27,7 @@ const PlacesNavigator = () => {
       <Stack.Screen name="detail" component={PlaceDetailScreen} />
       <Stack.Screen
         name="newPlace"
-        title="Add Place"
+        options={{ title: 'Add Place' }}
         component={NewPlaceScreen}
       />
       <Stack.Screen name="map" component={MapScreen} />
