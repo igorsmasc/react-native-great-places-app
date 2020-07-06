@@ -52,7 +52,7 @@ const MapScreen = ({ navigation, route }) => {
         );
       },
     });
-  }, [navigation, savePickedLocationHandler]);
+  }, [navigation, savePickedLocationHandler, readOnly]);
 
   let markerCoordinates;
 
